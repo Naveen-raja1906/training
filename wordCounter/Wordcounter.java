@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Scanner;
 
 /*
  * Approach:
@@ -17,6 +18,7 @@ import java.util.HashMap;
 public class Wordcounter {
 
 	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
 		FileReader fr = null;
 		BufferedReader br = null;
 		HashMap<Integer,Integer> ans = new HashMap<Integer,Integer>();
@@ -24,8 +26,10 @@ public class Wordcounter {
 		int size = 0;
 		String line = null;
 		String[] words = null;
+		System.out.println("Enter filename along with complete file path (eg:$ pwd\\*.txt) :");
+		String fileName = sc.next();
 		try {
-			fr = new FileReader("./src/Sample.txt");
+			fr = new FileReader(fileName);
 			br = new BufferedReader(fr);
 			while((line = br.readLine())!=null) {
 				if(line != " ") {
@@ -47,6 +51,7 @@ public class Wordcounter {
 			try {
 				fr.close();
 				br.close();
+				sc.close();
 			} catch (IOException e) {
 				System.out.println("Exception occured during file close!!! "+e.getMessage());
 			}
