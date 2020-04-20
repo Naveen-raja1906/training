@@ -22,13 +22,18 @@ public class Wordcounter {
 		HashMap<Integer,Integer> ans = new HashMap<Integer,Integer>();
 		int i = 0;
 		int size = 0;
+		String line = null;
 		String[] words = null;
 		try {
 			fr = new FileReader("./src/Sample.txt");
 			br = new BufferedReader(fr);
-			while(br.readLine()!=null) {
-				words = br.readLine().split(" ");
-				size = words.length;
+			while((line = br.readLine())!=null) {
+				if(line != " ") {
+					words = line.split(" ");
+					size = words.length;
+				}else {
+					size = 0;
+				}
 				ans.put(i++, size);
 				System.out.println(i+":"+size);
 				size = 0;
