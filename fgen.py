@@ -18,11 +18,10 @@ def gen_sentence(number_of_Words_min,number_of_Words_max,word_length_min,word_le
 
 def gen_file(number_of_lines,number_of_Words_min,number_of_Words_max,word_length_min,word_length_max,file_name):
 	''' generates file using given number of sectence '''
-	myfile = open(file_name+'.txt','a')
-	for i in range(number_of_lines):
-		myfile.write(gen_sentence(number_of_Words_min,number_of_Words_max,word_length_min,word_length_max))
+	with open(file_name+'.txt','a') as myfile:
+		for i in range(number_of_lines):
+			myfile.write(gen_sentence(number_of_Words_min,number_of_Words_max,word_length_min,word_length_max))
 	print("File generated Successfully!!")
-	myfile.close()
 
 if __name__ == '__main__':
 	print("Please provide details to generate the File")
