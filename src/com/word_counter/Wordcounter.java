@@ -170,10 +170,10 @@ class Linkedlist{
 
 	public void dis(String fileName){
 		Node current = head;
-		String Filepath = "C:\\Users\\NAVEEN\\Desktop\\practice\\Intern-training\\file_generator\\";
+		//String Filepath = "C:\\Users\\NAVEEN\\Desktop\\practice\\Intern-training\\file_generator\\";
 		try{
 			System.out.println("in Write");
-			FileWriter fw=new FileWriter(Filepath+fileName,true);
+			FileWriter fw=new FileWriter(fileName);
 			fw.write("Word count in Descending Order\n");
 			fw.write("LineNo\tWordCount\n");
 			while(current != null){
