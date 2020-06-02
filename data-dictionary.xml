@@ -1,0 +1,82 @@
+<DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+
+	<data-dictionary name="ManageRestaurant">
+
+		<table name="Restaurant">
+
+			<columns>
+
+				<column name="R_ID">
+					<data-type>INTEGER</data-type>
+					<uniquevalue-generation>
+				        <generator-name>Restaurant.R_ID</generator-name>
+				    </uniquevalue-generation>
+				</column>
+				<column name="R_NAME">
+					<data-type>CHAR</data-type>
+					<max-size>2 0</max-size>
+					<nullable>false</nullable>
+				</column>
+				<column name="R_LOCATION">
+					<data-type>CHAR</data-type>
+					<max-size>20</max-size>
+					<nullable>false</nullable>
+				</column>
+				<column name="R_CUISINE">
+					<data-type>CHAR</data-type>
+					<max-size>20</max-size>
+				</column>
+
+			</columns>
+
+			<primary-key name="Restaurant_PK">
+			   <primary-key-column>R_ID</primary-key-column>
+			</primary-key>
+
+		</table>
+
+		<table name="Menu">
+
+			<columns>
+
+				<column name="M_ID">
+					<data-type>INTEGER</data-type>
+					<uniquevalue-generation>
+				        <generator-name>Menu.M_ID</generator-name>
+				    </uniquevalue-generation>
+				</column>
+				<column name="M_ITEM_NAME">
+					<data-type>CHAR</data-type>
+					<max-size>20</max-size>
+					<nullable>false</nullable>
+				</column>
+				<column name="M_PRICE">
+					<data-type>DECIMAL</data-type>
+					<precision>2</precision>
+					<max-size>20</max-size>
+				</column>
+				<column name="R_ID">
+					<data-type>INTEGER</data-type>
+				</column>
+
+			</columns>
+
+			<primary-key name="Menu_PK">
+			   <primary-key-column>M_ID</primary-key-column>
+			</primary-key>
+
+			<foreign-keys>
+			   <foreign-key name="Menu_FK1" reference-table-name="Restaurant">
+			      <fk-columns>
+			         <fk-column>
+			            <fk-local-column>R_ID</fk-local-column>
+			            <fk-reference-column>R_ID</fk-reference-column>
+			         </fk-column>
+			      </fk-columns>
+			      <fk-constraints>ON-DELETE-RESTRICT</fk-constraints>
+			   </foreign-key>
+			<foreign-keys/> 
+
+		</table>
+
+	</data-dictionary>
